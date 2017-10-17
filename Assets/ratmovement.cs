@@ -13,38 +13,38 @@ public class ratmovement : MonoBehaviour {
     bool canMove = true;
     Rigidbody ratBody;
     Vector3 cameraToRat;
-    public Text myText;
-    float ratcounter = 0;
+    public static float ratcounter = 0;
     public Camera cam;
+    public bool ratCatch = false;
 
     void Start () {
         ratBody = this.GetComponent<Rigidbody>();
+        cam = Camera.main;
 	}
 	
 	void Update () {
-        cameraToRat = cam.transform.position - this.transform.position;
+        cameraToRat = this.transform.position - cam.transform.position;
 
-        Vector3 screenPos = cam.WorldToScreenPoint(this.gameObject.transform.position);
-        //bool onScreen = screenPos.z > 0 && screenPos.x > 0 && screenPos.x < 1 && screenPos.y > 0 && screenPos.y < 1;
-        if (Vector3.Dot(cameraToRat, cam.transform.forward) < 0)
+        if (Vector3.Dot(cameraToRat.normalized, cam.transform.forward) > 0.5f)
         {
-            Debug.Log("cameraToRat");
-            //if screenpos.x and screenpos.y are withing viewport
-            //if (onScreen)
-            //if(screenPos.z > 0 && screenPos.x > 0 && screenPos.x < 1 && screenPos.y > 0 && screenPos.y < 1)
-            //{
-            //Debug.Log("onscreen");
+            if (Vector3.Distance(cam.transform.position, this.transform.position) < 8f)
+            {
+                Debug.Log("cameraToRat");
                 if (Input.GetKey(KeyCode.Space))
                 {
-                    ratcounter++;
+                    ratCatch = true;
+                    Debug.Log("rat catch");
+                    Camera.main.GetComponent<textscript>().ratcounter++;
                     Destroy(this.gameObject);
                 }
-            //}
+                else
+                {
+                    ratCatch = false;
+                }
+            }
         }
 
-        myText.text = "You've caught " + ratcounter + " rat(s)!";
-
-        if (turn > 100)
+        if (turn > Random.Range(50,100))
         {
             ChangeDirection();
         }
@@ -59,6 +59,10 @@ public class ratmovement : MonoBehaviour {
     {
         if (canMove)
         {
+            if(Physics.Raycast(this.transform.position, this.inputVector, 2))
+            {
+                inputVector *= -1;
+            }
             ratBody.velocity = inputVector * 10f + Physics.gravity * 0.3f;
             turn++;
         }
@@ -83,20 +87,6 @@ public class ratmovement : MonoBehaviour {
         if(checkTurnB < 0)
         {
             verticalInput = Random.Range(ratMinSpeed, ratMaxSpeed);
-        }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.name == "Player")
-        {
-            if (this.canMove)
-            {
-                //GameManager.Instance.numCaught++;
-                ratBody.velocity = new Vector3(0, 0, 0);
-                //GameManager.Instance.numCaught;
-                //will move the rat    
-                //this.transform.position = moveLocation.transform.position;
-            }
         }
     }
 }
