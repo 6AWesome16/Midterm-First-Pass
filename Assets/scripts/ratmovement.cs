@@ -16,6 +16,10 @@ public class ratmovement : MonoBehaviour {
     public static float ratcounter = 0;
     public Camera cam;
     public bool ratCatch = false;
+    float coneOfViewEasy = 0.5f;
+    float coneOfViewMid = 0.8f;
+    float coneOfViewHard = 1f;
+    float coneOfView;
 
     void Start () {
         ratBody = this.GetComponent<Rigidbody>();
@@ -24,8 +28,19 @@ public class ratmovement : MonoBehaviour {
 	
 	void Update () {
         cameraToRat = this.transform.position - cam.transform.position;
-
-        if (Vector3.Dot(cameraToRat.normalized, cam.transform.forward) > 0.5f)
+        //if (difficulty == easy)
+        //{
+        //coneOfView = coneOfViewEasy;
+        //}
+        //else if (difficulty == mid)
+        //{
+        coneOfView = coneOfViewMid;
+        //}
+        //else if (difficulty == hard)
+        //{
+        //coneOfView = coneOfViewHard;
+        //}
+        if (Vector3.Dot(cameraToRat.normalized, cam.transform.forward) > coneOfView)
         {
             if (Vector3.Distance(cam.transform.position, this.transform.position) < 8f)
             {
