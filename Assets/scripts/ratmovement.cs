@@ -17,7 +17,7 @@ public class ratmovement : MonoBehaviour {
     public Camera cam;
     public bool ratCatch = false;
     float coneOfViewEasy = 0.5f;
-    float coneOfViewMid = 0.8f;
+    float coneOfViewMid = 0.95f;
     float coneOfViewHard = 1f;
     float coneOfView;
 
@@ -45,7 +45,7 @@ public class ratmovement : MonoBehaviour {
             if (Vector3.Distance(cam.transform.position, this.transform.position) < 8f)
             {
                 Debug.Log("cameraToRat");
-                if (Input.GetKey(KeyCode.Space))
+                if (Input.GetKey(KeyCode.Mouse0))
                 {
                     ratCatch = true;
                     Debug.Log("rat catch");
