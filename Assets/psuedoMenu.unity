@@ -3991,6 +3991,24 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 97531776b924c7b43b929063c958bfe0, type: 3}
+--- !u!1 &178077042 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 38d2ffc892012ae4e8d4e9979a4845f0, type: 3}
+  m_PrefabInternal: {fileID: 1160729298}
+--- !u!64 &178077043
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 178077042}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 0}
 --- !u!1001 &193102802
 Prefab:
   m_ObjectHideFlags: 0
@@ -4853,6 +4871,24 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fd7ea20def0c1c449be9e1ced9f189d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &365694637 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 38d2ffc892012ae4e8d4e9979a4845f0, type: 3}
+  m_PrefabInternal: {fileID: 881715346}
+--- !u!64 &365694638
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 365694637}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 0}
 --- !u!1001 &379080595
 Prefab:
   m_ObjectHideFlags: 0
@@ -19048,6 +19084,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1683021317}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1685550920 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 38d2ffc892012ae4e8d4e9979a4845f0, type: 3}
+  m_PrefabInternal: {fileID: 784824391}
+--- !u!64 &1685550921
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1685550920}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 0}
 --- !u!1001 &1689104016
 Prefab:
   m_ObjectHideFlags: 0

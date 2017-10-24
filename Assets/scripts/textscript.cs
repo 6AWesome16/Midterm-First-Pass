@@ -14,6 +14,7 @@ public class textscript : MonoBehaviour {
     void Start() {
         trains = GameObject.Find("Trains").GetComponent<Animator>();
         ratList = GameObject.Find("rats");
+        ratcounter = 0;
     }
 
     void Update()
@@ -41,6 +42,7 @@ public class textscript : MonoBehaviour {
                     ratcounter = 0;
                     SceneManager.LoadScene(0);
                 }
+                //ratcounter = 0;
             }      
         }
         else
@@ -61,6 +63,7 @@ public class textscript : MonoBehaviour {
                 ratcounter = 0;
                 SceneManager.LoadScene(0);
             }
+            //ratcounter = 0;
         } 
     }
 }
