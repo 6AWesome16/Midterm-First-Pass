@@ -33,11 +33,13 @@ public class textscript : MonoBehaviour {
                 Destroy(ratList);
                 if (Input.GetKey(KeyCode.R))
                 {
-                    SceneManager.LoadScene("prototype");
+                    ratcounter = 0;
+                    SceneManager.LoadScene(1);
                 }
                 else if (Input.GetKey(KeyCode.M))
                 {
-                    SceneManager.LoadScene("psuedoMenu");
+                    ratcounter = 0;
+                    SceneManager.LoadScene(0);
                 }
             }      
         }
@@ -51,11 +53,13 @@ public class textscript : MonoBehaviour {
             Destroy(ratList);
             if (Input.GetKey(KeyCode.R))
             {
-                SceneManager.LoadScene("prototype");
+                ratcounter = 0;
+                SceneManager.LoadScene(1);
             }
             else if (Input.GetKey(KeyCode.M))
             {
-                SceneManager.LoadScene("psuedoMenu");
+                ratcounter = 0;
+                SceneManager.LoadScene(0);
             }
         } 
     }
