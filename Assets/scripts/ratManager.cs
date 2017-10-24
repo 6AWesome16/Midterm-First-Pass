@@ -21,6 +21,28 @@ public class ratManager : MonoBehaviour {
 
     void Start () {
         ratParent = GameObject.Find("rats").transform;
+
+        if (sceneSelect.door1)
+        {
+            ratsPerTrack = 12f;
+            spacingX = 10f;
+            spacingY = 8f;
+            moveBack = 5f;
+        }
+        if (sceneSelect.door2)
+        {
+            ratsPerTrack = 6f;
+            spacingX = 10f;
+            spacingY = 16f;
+        }
+        if (sceneSelect.door3)
+        {
+            ratsPerTrack = 100f;
+            moveBack = 50f;
+            spacingX = 10f;
+            spacingY = 1f;
+        }
+
         totalRats = ratsPerTrack * tracks;
 
         //change gridY based on the round
@@ -38,9 +60,5 @@ public class ratManager : MonoBehaviour {
                 Instantiate(ratPrefab, pos, Quaternion.Euler(0, 0, 0), ratParent);
             }
         }
-	}
-	
-	void Update () {
-		
 	}
 }

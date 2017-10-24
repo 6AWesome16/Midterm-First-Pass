@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class textscript : MonoBehaviour {
     public Text myText;
-    public int ratcounter = 0;
+    public static int ratcounter = 0;
     public float totalRats;
-
     Animator trains;
     GameObject ratList;
 
@@ -30,22 +29,33 @@ public class textscript : MonoBehaviour {
                 Camera.main.GetComponent<clockscript>().updateTime = false;
                 myText.text = "You caught all the rats! You Won!";
                 myText.text += "\nPress R to try again!";
+                myText.text += "\nOr press M to go back to \nthe level select!";
                 Destroy(ratList);
                 if (Input.GetKey(KeyCode.R))
                 {
                     SceneManager.LoadScene("prototype");
                 }
-            }
+                else if (Input.GetKey(KeyCode.M))
+                {
+                    SceneManager.LoadScene("psuedoMenu");
+                }
+            }      
         }
         else
         {
             trains.SetBool("traintime", true);
             myText.text = "You couldn't save all the rats!";
             myText.text += "\nPress R to try again!";
+            myText.text += "\nOr press M to go back to \nthe level select!";
+
             Destroy(ratList);
             if (Input.GetKey(KeyCode.R))
             {
                 SceneManager.LoadScene("prototype");
+            }
+            else if (Input.GetKey(KeyCode.M))
+            {
+                SceneManager.LoadScene("psuedoMenu");
             }
         } 
     }

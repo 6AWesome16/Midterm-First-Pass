@@ -6,10 +6,80 @@ ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
+    100002: pCube1
+    100004: pCube2
+    100006: pCylinder5
+    100008: pCylinder6
+    100010: pCylinder7
+    100012: pCylinder8
+    100014: polySurface1
+    100016: polySurface2
+    100018: polySurface2 1
+    100020: polySurface3
+    100022: polySurface4
+    100024: polySurface5
+    100026: pSphere1
+    100028: transform1
+    100030: transform10
+    100032: transform2
+    100034: transform3
+    100036: transform4
+    100038: transform5
+    100040: transform6
+    100042: transform7
+    100044: transform8
+    100046: transform9
+    100048: polySurface12
+    100050: polySurface6
+    100052: polySurface8
     400000: //RootNode
+    400002: pCube1
+    400004: pCube2
+    400006: pCylinder5
+    400008: pCylinder6
+    400010: pCylinder7
+    400012: pCylinder8
+    400014: polySurface1
+    400016: polySurface2
+    400018: polySurface2 1
+    400020: polySurface3
+    400022: polySurface4
+    400024: polySurface5
+    400026: pSphere1
+    400028: transform1
+    400030: transform10
+    400032: transform2
+    400034: transform3
+    400036: transform4
+    400038: transform5
+    400040: transform6
+    400042: transform7
+    400044: transform8
+    400046: transform9
+    400048: polySurface12
+    400050: polySurface6
+    400052: polySurface8
     2300000: //RootNode
+    2300002: polySurface1
+    2300004: polySurface3
+    2300006: polySurface5
+    2300008: polySurface12
+    2300010: polySurface6
+    2300012: polySurface8
     3300000: //RootNode
+    3300002: polySurface1
+    3300004: polySurface3
+    3300006: polySurface5
+    3300008: polySurface12
+    3300010: polySurface6
+    3300012: polySurface8
     4300000: pCylinder5
+    4300002: polySurface1
+    4300004: polySurface3
+    4300006: polySurface5
+    4300008: polySurface6
+    4300010: polySurface8
+    4300012: polySurface12
     9500000: //RootNode
   materials:
     importMaterials: 1

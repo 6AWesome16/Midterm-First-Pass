@@ -5,13 +5,30 @@ using UnityEngine;
 public class mouseLook : MonoBehaviour {
     public float mouseSensitivty;
     float verticalLookAngle = 0f;
-	//you can make a sensitivity thing for both axes, we won't right now tho
-	// Update is called once per frame
-	void Update () {
+    float shake = 2f;
+    float shakeAmount = 0.1f;
+    float decreaseFactor = 5f;
+
+    void Update () {
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensitivty;
         float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensitivty;
         //apply rotations to the camera transform
-
+        //if (GameObject.Find("rats").GetComponentInChildren<ratmovement>().ratCatch)
+        if (ratmovement.ratCatch && shake >= 0)//causes the shake to work, but never end
+        {
+            Debug.Log(shake);
+            Camera.main.transform.localPosition = Random.insideUnitSphere * shakeAmount;
+            shake -= Time.deltaTime * decreaseFactor;
+            shakeAmount += .001f;
+        }
+        else
+        {
+            shake = 2.0f;
+            shakeAmount = .1f;
+            ratmovement.ratCatch = false;
+            //loops back into the first if
+        }
+       
         //rotates camera
         //transform.Rotate(-mouseY, mouseX, 0);
 

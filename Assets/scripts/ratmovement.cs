@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ratmovement : MonoBehaviour {
+public class ratmovement : MonoBehaviour
+{
     int turn = 101;
     float horizontalInput;
     float verticalInput;
@@ -15,66 +16,69 @@ public class ratmovement : MonoBehaviour {
     Vector3 cameraToRat;
     public static float ratcounter = 0;
     public Camera cam;
-    public bool ratCatch = false;
-    float coneOfViewEasy = 0.5f;
+    public static bool ratCatch = false;
     float coneOfViewMid = 0.95f;
-    float coneOfViewHard = 1f;
     float coneOfView;
+    public ParticleSystem death;
+    public Text crosshair;
+    public AudioSource myAudio;
 
-    void Start () {
+    void Start()
+    {
         ratBody = this.GetComponent<Rigidbody>();
         cam = Camera.main;
-	}
-	
-	void Update () {
+        death = GameObject.Find("Particle System").GetComponent<ParticleSystem>();
+        crosshair = GameObject.Find("Crosshair").GetComponent<Text>();
+        myAudio = GameObject.Find("deadsound").GetComponent<AudioSource>();
+    }
+
+    void Update()
+    {
         cameraToRat = this.transform.position - cam.transform.position;
-        //if (difficulty == easy)
-        //{
-        //coneOfView = coneOfViewEasy;
-        //}
-        //else if (difficulty == mid)
-        //{
+
         coneOfView = coneOfViewMid;
-        //}
-        //else if (difficulty == hard)
-        //{
-        //coneOfView = coneOfViewHard;
-        //}
+
         if (Vector3.Dot(cameraToRat.normalized, cam.transform.forward) > coneOfView)
         {
             if (Vector3.Distance(cam.transform.position, this.transform.position) < 8f)
             {
-                Debug.Log("cameraToRat");
-                if (Input.GetKey(KeyCode.Mouse0))
+                crosshair.color = Color.green;
+                if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     ratCatch = true;
                     Debug.Log("rat catch");
-                    Camera.main.GetComponent<textscript>().ratcounter++;
+                    textscript.ratcounter++;
+                    death.transform.position = this.transform.position;
+                    death.Play();
+                    myAudio.Play();
                     Destroy(this.gameObject);
+                    crosshair.color = Color.red;
                 }
-                else
-                {
-                    ratCatch = false;
-                }
+            }
+            else
+            {
+                ratCatch = false;
+                crosshair.color = Color.red;
             }
         }
 
-        if (turn > Random.Range(50,100))
+
+        if (turn > Random.Range(50, 100))
         {
             ChangeDirection();
         }
         inputVector = transform.right * horizontalInput + transform.forward * verticalInput;
-        if(inputVector.magnitude > 1f)
+        if (inputVector.magnitude > 1f)
         {
             inputVector = Vector3.Normalize(inputVector);
         }
 
-	}
+    }
     void FixedUpdate()
     {
         if (canMove)
         {
-            if(Physics.Raycast(this.transform.position, this.inputVector, 2))
+            if (Physics.Raycast(this.transform.position, this.inputVector, 2))
             {
                 inputVector *= -1;
             }
@@ -87,19 +91,19 @@ public class ratmovement : MonoBehaviour {
         turn = 0;
         float checkTurnA = Random.Range(-1.0f, 1.0f);
         float checkTurnB = Random.Range(-1.0f, 1.0f);
-        if(checkTurnA > 0)
+        if (checkTurnA > 0)
         {
             horizontalInput = Random.Range(-ratMaxSpeed, -ratMinSpeed);
         }
-        if(checkTurnA < 0)
+        if (checkTurnA < 0)
         {
             horizontalInput = Random.Range(ratMinSpeed, ratMaxSpeed);
         }
-        if(checkTurnB > 0)
+        if (checkTurnB > 0)
         {
             verticalInput = Random.Range(-ratMaxSpeed, -ratMinSpeed);
         }
-        if(checkTurnB < 0)
+        if (checkTurnB < 0)
         {
             verticalInput = Random.Range(ratMinSpeed, ratMaxSpeed);
         }
