@@ -42,7 +42,6 @@ public class textscript : MonoBehaviour {
                     ratcounter = 0;
                     SceneManager.LoadScene(0);
                 }
-                //ratcounter = 0;
             }      
         }
         else

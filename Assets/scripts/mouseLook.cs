@@ -16,7 +16,6 @@ public class mouseLook : MonoBehaviour {
         //if (GameObject.Find("rats").GetComponentInChildren<ratmovement>().ratCatch)
         if (ratmovement.ratCatch && shake >= 0)//causes the shake to work, but never end
         {
-            Debug.Log(shake);
             Camera.main.transform.localPosition = Random.insideUnitSphere * shakeAmount;
             shake -= Time.deltaTime * decreaseFactor;
             shakeAmount += .001f;

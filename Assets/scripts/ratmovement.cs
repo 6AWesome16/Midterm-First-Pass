@@ -46,7 +46,6 @@ public class ratmovement : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     ratCatch = true;
-                    Debug.Log("rat catch");
                     textscript.ratcounter++;
                     death.transform.position = this.transform.position;
                     death.Play();
